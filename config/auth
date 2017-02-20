@@ -1,0 +1,7 @@
+{
+    "google": {
+        "clientID": "abcd.apps.googleusercontent.com",
+        "clientSecret": "secret",
+        "callbackURL": "http://localhost:3000/"
+    }
+}
