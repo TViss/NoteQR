@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var crypto = require('crypto');
 var Qrcode = require('./src/models/qrcodes');
-mongoose.connect('mongodb://localhost/qrcode');
+mongoose.connect(process.env.connectionString);
 var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");

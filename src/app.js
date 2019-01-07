@@ -1,6 +1,7 @@
 var angular = require('angular');
 var app = angular.module("qrcode", [require('angular-route'), require('angular-material')]);
-app.config(function($routeProvider) {
+app.config(function ($routeProvider,$locationProvider) {
+    $locationProvider.hashPrefix('');
     $routeProvider
     .when("/", {
         templateUrl : "templates/main.html",
