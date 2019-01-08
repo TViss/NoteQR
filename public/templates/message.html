@@ -1,11 +1,14 @@
-This is the message page
-<br>
-<textarea ng-model="qrcode.message">
-</textarea>
-<br>
-<md-button ng-click="save()" class="md-primary md-raised">
-	Save Message
-</md-button>
-<p>
-{{ qrcode.message }}
-</p>
+<md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+<div class="center">
+	This is the message page
+	<br>
+	<textarea ng-model="qrcode.message">
+	</textarea>
+	<br>
+	<md-button ng-click="save()" class="md-primary md-raised">
+		Save Message
+	</md-button>
+	<p>
+	{{ qrcode.message }}
+	</p>
+</div>

@@ -8,15 +8,19 @@ app.config(function ($routeProvider,$locationProvider) {
 	controller : function($scope, $http)
 	{
 		$scope.qrcodes=[];
+		$scope.loading=true;
 		$http.get("/qrcodes").then(function(res)
 		{
 			$scope.qrcodes = $scope.qrcodes.concat(res.data);	
+			$scope.loading=false;
 		});
 		$scope.genqr=function()
 		{
+			$scope.loading=true;
 			$http.get("/generate").then(function(res)
 			{
 				$scope.qrcodes.push(res.data);	
+				$scope.loading=false;
 			});
 		};	
 	}
@@ -26,14 +30,18 @@ app.config(function ($routeProvider,$locationProvider) {
 	controller : function($scope, $http, $routeParams)
 	{
 		$scope.qrcode = {};
+		$scope.loading=true;
 		$http.get("/qrcode/" + $routeParams.hash).then(function(res)
 		{
 			$scope.qrcode = res.data;	
+			$scope.loading=false;
 		});
 		$scope.save=function()
 		{
+			$scope.loading=true;
 			$http.put("/qrcode/" + $routeParams.hash, $scope.qrcode).then(function(res)
 			{
+				$scope.loading=false;
 				alert("Saved Successfully");
 			});
 		};	

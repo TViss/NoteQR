@@ -1,3 +1,4 @@
+<md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
 <br>
 <div class="center">
 	<md-button ng-click="genqr()" class="md-primary md-raised">
@@ -7,7 +8,11 @@
 		Generate QR
 	</md-button>
 </div>
-<p ng-repeat="qrcode in qrcodes" class="center">
-<img src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=http%3A%2F%2F104.198.41.86%3A3000%2F%23%2Fmessage%2F{{ qrcode.hash }}">
-</img>
-</p>
+<div ng-repeat="qrcode in qrcodes" class="center">
+	<a ng-href="#/message/{{ qrcode.hash }}">
+		<img src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=http%3A%2F%2F104.198.41.86%3A3000%2F%23%2Fmessage%2F{{ qrcode.hash }}"/>
+	</a>
+	<div>
+	{{ qrcode.message }}
+	</div>
+</div>
